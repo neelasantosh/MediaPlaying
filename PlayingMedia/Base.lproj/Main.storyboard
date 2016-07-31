@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="U90-ll-tCA">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Audio Player-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kAY-aG-CA1">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <color key="backgroundColor" red="0.2466701446" green="0.67118450129999996" blue="0.54468844490000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Play"/>
+                                    <segment title="Pause"/>
+                                    <segment title="Stop"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="127" width="311" height="29"/>
+                                </variation>
+                                <connections>
+                                    <action selector="hangePlayOption:" destination="vXZ-lx-hvc" eventType="valueChanged" id="4xO-s1-nnz"/>
+                                </connections>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="JHU-GT-ku0">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="172" width="315" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="ChangePlayPosition:" destination="vXZ-lx-hvc" eventType="valueChanged" id="xT1-d2-IhX"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35564066480000001" green="0.949514678" blue="0.77555130890000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="kAY-aG-CA1"/>
+                                <exclude reference="JHU-GT-ku0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="kAY-aG-CA1"/>
+                                <include reference="JHU-GT-ku0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Audio Player" id="vvM-4Q-uTo">
+                        <barButtonItem key="leftBarButtonItem" title="Record Audio" id="kHn-V1-BCb">
+                            <connections>
+                                <segue destination="7u2-Ic-0Vc" kind="show" id="kTG-EX-nPt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Play Video" id="gcX-Xh-cst">
+                            <connections>
+                                <segue destination="pye-99-1C8" kind="show" id="ieT-vV-GeJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segment" destination="kAY-aG-CA1" id="RH7-MQ-g4w"/>
+                        <outlet property="slider" destination="JHU-GT-ku0" id="PfT-8S-Ghd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079" y="399"/>
+        </scene>
+        <!--Audio Record View Controller-->
+        <scene sceneID="gH8-uL-PJr">
+            <objects>
+                <viewController id="7u2-Ic-0Vc" customClass="AudioRecordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MWQ-sI-xKW"/>
+                        <viewControllerLayoutGuide type="bottom" id="RQ3-Yp-uAl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EQg-MB-U0X">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ujk-Ue-Vus">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <color key="backgroundColor" red="0.2466701446" green="0.67118450129999996" blue="0.54468844490000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Record"/>
+                                    <segment title="Stop"/>
+                                    <segment title="Play"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.61898246069999996" blue="0.24093420660000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="72" y="101" width="257" height="29"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeOptions:" destination="7u2-Ic-0Vc" eventType="valueChanged" id="S4K-eq-hGU"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35564066480000001" green="0.949514678" blue="0.77555130890000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ujk-Ue-Vus"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ujk-Ue-Vus"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="segment" destination="ujk-Ue-Vus" id="0fB-Fg-foc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pam-Cj-0zx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079" y="1076"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="JhA-q0-imi">
+            <objects>
+                <viewController id="pye-99-1C8" customClass="VideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yDi-Iy-Ckq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ywx-jN-Qaa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hss-wM-IgF">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.35564066480000001" green="0.949514678" blue="0.77555130890000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjC-kI-bdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2737.5" y="399"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2vM-hw-Y6t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U90-ll-tCA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C0q-TP-cnD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Nf3-a9-QrI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="joT-F9-X18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="399"/>
+        </scene>
+    </scenes>
+</document>
